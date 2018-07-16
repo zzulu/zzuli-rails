@@ -24,6 +24,12 @@ input {
   &:focus {
     border: 1px solid $oc-indigo-3;
   }
+  &[type=text] {
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+  }
 }
 
 *:focus {

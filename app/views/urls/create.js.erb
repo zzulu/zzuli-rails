@@ -3,4 +3,11 @@ document.querySelectorAll('.invalid').forEach(function(e){
 });
 
 document.querySelector('.new-form').classList.add('active');
-document.getElementById('created-shortened').innerHTML = '<%= @url.shortened %>'
+document.getElementById('created-shortened').innerHTML = '<%= @url.shortened %>';
+
+if (typeof gtag === 'function') {
+  gtag('event', 'create',{
+    'event_category': 'url',
+    'event_label': 'success',
+  });
+}
