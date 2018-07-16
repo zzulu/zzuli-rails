@@ -1,0 +1,10 @@
+document.querySelectorAll('.invalid').forEach(function(e){
+  e.classList.remove('invalid');
+});
+
+var errorMessages = JSON.parse('<%= j @url.errors.messages.to_json.html_safe %>');
+Object.keys(errorMessages).map(function(key){
+  var input = document.getElementById(`url_${key}`);
+  input.parentElement.lastElementChild.innerHTML = errorMessages[key].join(' ');
+  input.parentElement.classList.add('invalid');
+});

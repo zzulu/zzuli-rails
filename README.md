@@ -1,3 +1,3 @@
 # zzuli
 
-zzuli Short URL | The URL Shortener
+Make zzuli Short URL | The URL Shortener
