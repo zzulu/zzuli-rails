@@ -1,0 +1,21 @@
+<div class="container">
+  <%= image_tag 'zzuli-header.png', class: 'header__img' %>
+  <%= form_with model: @url, remote: true, class:'new-form' do |f| %>
+    <div class="new-form__field">
+      <%= f.text_field :origin, autocomplete: 'off', placeholder: 'https://what-a-long-url-you-have.com' %>
+      <small></small>
+    </div>
+    <div class="new-form__arrow"></div>
+    <div class="new-form__field">
+      <!-- After shorten -->
+      <div class="input__shortened--active">
+        https://zzu.li/<span id="created-shortened"></span><span id="copy" class="active__copy">Copy</span>
+      </div>
+      <!-- Before shorten -->
+      <%= f.text_field :shortened, autocomplete: 'off', class: 'input__shortened' %>
+      <%= f.label :shortened, 'https://zzu.li/' %>
+      <small></small>
+    </div>
+    <%= f.button :Shorten, class:'btn btn--indigo' %>
+  <% end %>
+</div>

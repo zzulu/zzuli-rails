@@ -1,0 +1,6 @@
+document.querySelectorAll('.invalid').forEach(function(e){
+  e.classList.remove('invalid');
+});
+
+document.querySelector('.new-form').classList.add('active');
+document.getElementById('created-shortened').innerHTML = '<%= @url.shortened %>'
