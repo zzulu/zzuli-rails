@@ -22,6 +22,6 @@ class Url < ApplicationRecord
   private
 
     def random_shortened
-      [*('A'..'Z'),*('a'..'z'),*('0'..'9')].sample(6).join      
+      [*('A'..'Z'),*('a'..'z'),*('0'..'9')].sample(5).join      
     end
 end
