@@ -14,10 +14,10 @@ ActiveRecord::Schema.define(version: 2018_07_12_062249) do
 
   create_table "urls", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.datetime "expired_at"
-    t.string "title", default: "", null: false
     t.text "origin"
     t.string "shortened", default: "", null: false
+    t.text "remark"
+    t.datetime "expired_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["shortened"], name: "index_urls_on_shortened", unique: true
