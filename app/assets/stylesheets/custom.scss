@@ -108,17 +108,24 @@
         color: inherit;
         padding: 1rem 1.5rem;
         border: 1px solid $oc-indigo-3;
+        overflow-x: scroll;
+
+        &::-webkit-scrollbar { 
+          display: none;
+        }
         
-        span:not(:first-child) {
+        #created-shortened {
           padding-left: 0.125rem;
         }
 
         .active__copy {
-          float: right;
-          -webkit-user-select: none; /* Safari, Chrome */
-          -moz-user-select: none; /* Firefox */
-          -ms-user-select: none; /* IE */
-          user-select: none; /* CSS3 */
+          position: absolute;
+          top: 0;
+          right: 0;
+          padding: 1rem 1rem 1rem 1.25rem;
+          margin: 1px;
+          background-color: #fff;
+          user-select: none;
 
           cursor: pointer;
           color: $oc-indigo-6;
@@ -172,7 +179,7 @@
       }
 
       &--active {
-        display: block;
+        display: flex;
       }
     }
   }

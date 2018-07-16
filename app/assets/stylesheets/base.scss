@@ -25,9 +25,7 @@ input {
     border: 1px solid $oc-indigo-3;
   }
   &[type=text] {
-    -webkit-appearance: none;
     appearance: none;
-    -webkit-border-radius: 0;
     border-radius: 0;
   }
 }
@@ -36,15 +34,7 @@ input {
     outline: none;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder {
     color: $oc-gray-5;
-    opacity: 1; /* Firefox */
-}
-
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: $oc-gray-5;
-}
-
-::-ms-input-placeholder { /* Microsoft Edge */
-    color: $oc-gray-5;
+    opacity: 1;
 }
