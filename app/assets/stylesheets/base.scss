@@ -1,0 +1,44 @@
+/**
+ * Base
+ */
+
+body {
+  color: $oc-gray-8;
+}
+
+h1, h2 {
+  color: $oc-gray-7;
+}
+
+a {
+  color: $oc-indigo-6;
+  &:hover,
+  &:focus {
+    color: $oc-indigo-8;
+  }
+}
+
+input {
+  padding: 0.5rem 1rem;
+  border: 1px solid $oc-gray-3;
+  &:focus {
+    border: 1px solid $oc-indigo-3;
+  }
+}
+
+*:focus {
+    outline: none;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $oc-gray-5;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $oc-gray-5;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: $oc-gray-5;
+}

@@ -11,3 +11,11 @@
  * It is generally better to create a new file per style scope.
  *
  */
+
+@import 'open-color';
+@import 'bootstrap-reboot.min.css';
+// @import 'bootstrap-grid.min.css';
+
+@import 'base';
+@import 'layouts';
+@import 'custom';

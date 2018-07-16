@@ -1,0 +1,197 @@
+/**
+ * Button
+ */
+
+.btn {
+  border: none;
+  padding: 0.5rem 1rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.btn--indigo {
+    color: white;
+    background-color: $oc-indigo-6;
+    
+    &:hover {
+      background-color: $oc-indigo-8;
+    }
+
+    &:focus {
+      outline-color: $oc-indigo-4;
+    }
+  }
+}
+
+
+/**
+ * Typo
+ */
+
+.new-title {
+  text-align: center;
+}
+
+
+/**
+ * Form
+ */
+
+.header__img {
+  display: block;
+  width: 100%;
+  max-width: 350px;
+  margin: 3rem auto;
+}
+
+.new-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 5rem;
+
+  &__field {
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 400px;
+
+    &:last-of-type {
+      margin-bottom: 3rem;
+    }
+
+    input {
+      flex-grow: 1;
+      padding: 1rem 1.5rem;
+    }
+
+    label {
+      color: $oc-gray-5;
+      margin-bottom: 0;
+      padding: 1rem 0 1rem 1.5rem;
+      border-top: 1px solid $oc-gray-3;
+      border-bottom: 1px solid $oc-gray-3;
+      border-left: 1px solid $oc-gray-3;
+    }
+
+    small {
+      display: none;
+      position: absolute;
+      top: 3.625rem;
+      left: 0;
+      padding: 0.125rem 0.25rem;
+      color: $oc-red-5;
+    }
+
+    &.invalid > small {
+      display: block;
+    }
+
+    .input__shortened {
+      min-width: 0;
+      border-left: none;
+      padding-left: 0.125rem;
+
+      &:focus + label {
+        color: inherit;
+        border-top: 1px solid $oc-indigo-3;
+        border-bottom: 1px solid $oc-indigo-3;
+        border-left: 1px solid $oc-indigo-3;
+      }
+
+      &--active {
+        display: none;
+        flex-grow: 1;
+        color: inherit;
+        padding: 1rem 1.5rem;
+        border: 1px solid $oc-indigo-3;
+        
+        span {
+          padding-left: 0.125rem;
+        }
+
+        .active__copy {
+          float: right;
+          -webkit-user-select: none; /* Safari, Chrome */
+          -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* IE */
+          user-select: none; /* CSS3 */
+
+          cursor: pointer;
+          color: $oc-indigo-6;
+          &:hover,
+          &:focus {
+            color: $oc-indigo-8;
+          }
+        }
+      }
+    }
+  }
+
+  &__arrow {
+    position: relative;
+    width: 14px;
+    height: 8px;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+
+    &:before,
+    &:after {
+      position: absolute;
+      content: '';
+      display: block;
+      width: 14px;
+      height: 8px;
+      background-position: center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    &:before {
+      opacity: 1;
+      background-image: image-url('icons/pixel-arrow-disabled.png');
+    }
+
+    &:after {
+      opacity: 0;
+      background-image: image-url('icons/pixel-arrow.png');
+    }
+  }
+
+  &.active > &__field {
+    input {
+      color: $oc-gray-5;
+    }
+
+    .input__shortened {
+      &, & + label {
+        display: none;
+      }
+
+      &--active {
+        display: block;
+      }
+    }
+  }
+
+  &.active > &__arrow {
+    &:before {
+      opacity: 0;
+    }
+
+    &:after {
+      opacity: 1;
+    }
+  }
+}
+
+/**
+ * Errors
+ */
+
+.errors__link {
+  text-align: center;
+}
