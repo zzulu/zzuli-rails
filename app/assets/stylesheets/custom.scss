@@ -65,12 +65,13 @@
 
     input {
       flex-grow: 1;
+      padding: 1rem 1.5rem;
     }
 
     label {
       color: $oc-gray-5;
       margin-bottom: 0;
-      padding: 0.5rem 0 0.5rem 1rem;
+      padding: 1rem 0 1rem 1.5rem;
       border-top: 1px solid $oc-gray-3;
       border-bottom: 1px solid $oc-gray-3;
       border-left: 1px solid $oc-gray-3;
@@ -79,7 +80,7 @@
     small {
       display: none;
       position: absolute;
-      top: 2.625rem;
+      top: 3.625rem;
       left: 0;
       padding: 0.125rem 0.25rem;
       color: $oc-red-5;
@@ -105,7 +106,7 @@
         display: none;
         flex-grow: 1;
         color: inherit;
-        padding: 0.5rem 1rem;
+        padding: 1rem 1.5rem;
         border: 1px solid $oc-indigo-3;
         
         span {
@@ -127,10 +128,6 @@
           }
         }
       }
-    }
-
-    &.invalid {
-
     }
   }
 
