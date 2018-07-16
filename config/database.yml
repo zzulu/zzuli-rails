@@ -22,5 +22,11 @@ test:
   database: zzuli_test
 
 production:
-  <<: *default
+  adapter: mysql2
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  host: <%= Rails.application.credentials.database_host %>
+  port: <%= Rails.application.credentials.database_port %>
   database: zzuli_production
+  username: <%= Rails.application.credentials.database_username %>
+  password: <%= Rails.application.credentials.database_password %>
