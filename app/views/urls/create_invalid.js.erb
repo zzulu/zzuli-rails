@@ -8,3 +8,10 @@ Object.keys(errorMessages).map(function(key){
   input.parentElement.lastElementChild.innerHTML = errorMessages[key].join(' ');
   input.parentElement.classList.add('invalid');
 });
+
+if (typeof gtag === 'function') {
+  gtag('event', 'create',{
+    'event_category': 'url',
+    'event_label': '<%= j @url.errors.full_messages.join(' ').html_safe %>',
+  });
+}
