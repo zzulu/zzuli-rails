@@ -8,6 +8,7 @@ Make zzuli Short URL | The URL Shortener
 - Fix cracked layout on mobile.
 - Tinify images.
 - Add Google Analytics.
+- Fix meta-tag description.
 
 ### release 0.1.0
 - Launch!
