@@ -8,6 +8,7 @@ class Url < ApplicationRecord
                                   message: 'Can\'t use the following characters. ;?/:@=&"<>#%{}|\^~[]`' },
                         presence: true
 
+  validate :check_same_url
 
   after_initialize :set_default
 
@@ -23,5 +24,9 @@ class Url < ApplicationRecord
 
     def random_shortened
       [*('A'..'Z'),*('a'..'z'),*('0'..'9')].sample(5).join      
+    end
+
+    def check_same_url
+      errors.add :origin, "Can't be the same as the shortened URL." if origin == "https://zzu.li/#{shortened}"
     end
 end
