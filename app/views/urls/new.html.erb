@@ -1,6 +1,6 @@
 <div class="container">
   <%= image_tag 'zzuli-header.png', class: 'header__img' %>
-  <%= form_with model: @url, remote: true, class:'new-form active' do |f| %>
+  <%= form_with model: @url, remote: true, class:'new-form' do |f| %>
     <div class="new-form__field">
       <%= f.text_field :origin, autocomplete: 'off', placeholder: 'https://what-a-long-url-you-have.com' %>
       <small></small>
