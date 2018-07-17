@@ -2,6 +2,9 @@
 
 Make zzuli Short URL | The URL Shortener
 
+### hotfix 0.1.6
+- Fix bug (Remove 'active' class when it starts)
+
 ### release 0.1.5
 - Add 'Copy to clipboard' using clipboard.js
 - Fix cracked layout on Firefox.
