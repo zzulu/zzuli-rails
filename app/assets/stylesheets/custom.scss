@@ -103,22 +103,53 @@
       }
 
       &--active {
+        position: relative;
         display: none;
-        flex-grow: 1;
+        width: inherit;
         color: inherit;
-        padding: 1rem 1.5rem;
+        padding: 1rem 1.25rem 1rem 1.5rem;
         border: 1px solid $oc-indigo-3;
-        
-        span {
-          padding-left: 0.125rem;
+        background-color: #fff;
+
+        &.copied {
+          &:after {
+            position: absolute;
+            top: 0rem;
+            right: -1px;
+            z-index: -1;
+            content: 'Copied!';
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            color: #fff;
+            background-color: $oc-indigo-6;
+            animation: popup 2s linear;
+          }
+
+          @keyframes popup {
+            0% {top: 0;}
+            10%, 90% {top: -1.625rem;}
+          }
+        }
+
+        .active__url {
+          flex-grow:1;
+          display: flex;
+          overflow-x: scroll;
+          color: inherit;
+
+          &::-webkit-scrollbar { 
+            display: none;
+          }
+
+          #created-shortened {
+            white-space: nowrap;
+            padding-left: 0.125rem;
+          }
         }
 
         .active__copy {
-          float: right;
-          -webkit-user-select: none; /* Safari, Chrome */
-          -moz-user-select: none; /* Firefox */
-          -ms-user-select: none; /* IE */
-          user-select: none; /* CSS3 */
+          margin-left: 1.25rem;
+          user-select: none;
 
           cursor: pointer;
           color: $oc-indigo-6;
@@ -172,7 +203,7 @@
       }
 
       &--active {
-        display: block;
+        display: flex;
       }
     }
   }
