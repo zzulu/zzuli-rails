@@ -2,7 +2,7 @@
 
 Make zzuli Short URL | The URL Shortener
 
-### hotfix 0.1.6-0.1.7
+### hotfix 0.1.6-0.1.8
 - Fix bug (Remove 'active' class when it starts)
 - Fix some words.
 
