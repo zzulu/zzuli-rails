@@ -4,13 +4,24 @@ document.addEventListener('turbolinks:load', function(e) {
     this.parentElement.parentElement.classList.remove('active');
   });
   
-  new ClipboardJS('#copy', {
+  var clipboard = new ClipboardJS('#copy', {
     text: function(trigger) {
-        var text = [];
-        while (trigger = trigger.previousElementSibling)
-          text.push(trigger.innerText);
-        return text.reverse().join('');
+        return trigger.previousElementSibling.innerText.replace(/\r?\n|\r/g,'');
     }
   });
-});
 
+  clipboard.on('success', function(e) {
+    var box = e.trigger.parentElement;
+    if (!box.classList.contains('copied')) {
+      box.classList.add('copied');
+      setTimeout(function() {
+        box.classList.remove('copied');
+      }, 2000);
+    }
+  });
+
+  clipboard.on('error', function(e) {
+    console.error('Action:', e.action);
+    console.error('Trigger:', e.trigger);
+  });
+});
