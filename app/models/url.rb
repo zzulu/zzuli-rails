@@ -27,6 +27,7 @@ class Url < ApplicationRecord
     end
 
     def check_same_url
-      errors.add :origin, "Can't be the same as the shortened URL." if origin == "https://zzu.li/#{shortened}"
+      match_data = origin.match(URI::regexp)
+      errors.add :origin, "Can't be the same as the shortened URL." if match_data[7] == "/#{shortened}" && match_data[4] == 'zzu.li'
     end
 end
