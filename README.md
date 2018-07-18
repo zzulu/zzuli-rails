@@ -2,11 +2,12 @@
 
 Make zzuli Short URL | The URL Shortener
 
-### hotfix 0.1.6-0.1.10
+### hotfix 0.1.6-0.1.12
 - Fix bug (Remove 'active' class when it starts)
 - Fix some words.
 - Fix bug (Fall into an infinite loop if the destination and shortened are the same)
 - Change method of validation for the destination URL includes the case of the same with shortened URL.
+- Reject when the destination URL is invalid URL.
 
 ### release 0.1.5
 - Add 'Copy to clipboard' using clipboard.js
