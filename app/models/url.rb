@@ -1,14 +1,13 @@
 class Url < ApplicationRecord
   belongs_to :user, optional: true
 
-  validates :origin, format: { with: URI::regexp(%w(http https)),
-                               message: 'Must start with \'http\' or \'https\'.' }
+  # validates :origin, format: { with: URI::regexp(%w(http https)),
+  #                              message: 'Must start with \'http\' or \'https\'.' }
+  validate :format_of_origin
   validates :shortened, uniqueness: { message: 'Has already been taken.' },
                         format: { without: /[ ;\?\/:@=&"<>#%\{\}\|\\^~\[\]`]/,
                                   message: 'Can\'t use the following characters. ;?/:@=&"<>#%{}|\^~[]`' },
                         presence: true
-
-  validate :check_same_url
 
   after_initialize :set_default
 
@@ -26,8 +25,15 @@ class Url < ApplicationRecord
       [*('A'..'Z'),*('a'..'z'),*('0'..'9')].sample(5).join      
     end
 
-    def check_same_url
-      match_data = origin.match(URI::regexp)
-      errors.add :origin, "Can't be the same as the shortened URL." if match_data[7] == "/#{shortened}" && match_data[4] == 'zzu.li'
+    def format_of_origin
+      match_data = origin.match(URI::regexp(%w(http https))) || []
+      # 1: scheme, 2: opaque, 3: userinfo, 4: host, 5: port, 6: registry,  7: path, 8: query, 9: fragment
+      if match_data[1].nil? 
+        errors.add :origin, 'Must start with \'http://\' or \'https://\'.'
+      elsif match_data[4].nil?
+        errors.add :origin, 'Host can\'t be blank.'
+      elsif match_data[7] == "/#{shortened}" && match_data[4] == 'zzu.li'
+        errors.add :origin, 'Can\'t be the same as the shortened URL.'
+      end
     end
 end

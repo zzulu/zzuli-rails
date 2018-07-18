@@ -6,7 +6,7 @@ Make zzuli Short URL | The URL Shortener
 - Fix bug (Remove 'active' class when it starts)
 - Fix some words.
 - Fix bug (Fall into an infinite loop if the destination and shortened are the same)
-- Change validate method for the same url case.
+- Change method of validation for the destination URL includes the case of the same with shortened URL.
 
 ### release 0.1.5
 - Add 'Copy to clipboard' using clipboard.js
